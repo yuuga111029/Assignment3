@@ -1,11 +1,16 @@
 <div>
-  <%= image_tag @book.get_image %>
-  <%= @book.title %>
-  <%= @book.opinion %>
-  <!--<p>投稿ユーザー画像：<= image_tag 'sample-author1.jpg' %></p>-->
+  <p id="notice"><%= flash[:notice] %></p>
+</div>
+
+<div>
+  <!--<= image_tag @book.get_image %>-->
   <%= @book.user.name %>
+  <%= @book.title %>
+  <%= @book.body %>
+  <!--<p>投稿ユーザー画像：<= image_tag @book.user.get_profile_image(100,100) %></p>-->
   <!--<p>投稿日：<= @book.created_at.strftime('%Y/%m/%d') %></p>-->
   <% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path(@book.id) %>
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
 </div>
