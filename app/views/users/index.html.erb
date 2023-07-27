@@ -1,0 +1,36 @@
+
+  <h1>Users</h1>
+
+
+<% @users.each do |user| %>
+
+<div class="container">  <!-- この行を追加 -->
+
+  <div class="row">      <!-- この行を追加 -->
+
+  <table class="table table-striped">
+
+    <div class="col-lg-2">
+      <%= image_tag user.get_profile_image(100,100) %>
+
+    </div>
+
+    <div class="col-lg-2">
+      <p><%= user.name %></p>
+    </div>
+
+    <div class="col-lg-8">  <!-- この行を追加 -->
+      <%= link_to user_path(user.id) do %>
+        <p>Show</p>
+      <% end %>
+
+
+    </div>
+
+  </table>
+
+  </div>
+
+</div>
+
+<% end %>
